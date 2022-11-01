@@ -1,0 +1,40 @@
+.paginator {
+  .btn,
+  a.btn,
+  span {
+    min-width: 44px;
+    text-align: center;
+  }
+
+  .previous-page,
+  .next-page {
+    color: var(--clr-primary-050);
+    display: flex;
+  }
+
+  .previous-page {
+    flex-direction: row;
+
+    @media screen and (min-width: $layout-medium-breakpoint) {
+      padding-right: 1.125rem;
+
+      &:before {
+        padding-right: 0.25rem;
+        margin-left: -0.25rem;
+      }
+    }
+  }
+
+  .next-page {
+    flex-direction: row-reverse;
+
+    @media screen and (min-width: $layout-medium-breakpoint) {
+      padding-left: 1.125rem;
+
+      &:before {
+        padding-left: 0.25rem;
+        margin-right: -0.25rem;
+      }
+    }
+  }
+}

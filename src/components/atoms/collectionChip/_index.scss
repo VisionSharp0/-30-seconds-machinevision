@@ -1,0 +1,17 @@
+.collection-chip {
+  > .icon {
+    padding-left: 4.25rem;
+    min-height: 64px;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      box-sizing: border-box;
+      padding: 0.875rem;
+      width: 64px;
+      height: 64px;
+      border-radius: var(--br-xl);
+    }
+  }
+}

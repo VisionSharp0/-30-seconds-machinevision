@@ -1,0 +1,158 @@
+.snippet-card {
+  .card-source-content {
+    pre {
+      margin: 0;
+    }
+
+    [data-code-language='Examples'] {
+      margin-top: -0.875rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .code-highlight {
+    position: relative;
+
+    + .code-highlight > .card-code:not([data-code-language='Examples']) {
+      border-top: 2px solid var(--clr-code-border);
+      border-top-left-radius: var(--br-none);
+      border-top-right-radius: var(--br-none);
+      padding-top: 2.5rem;
+      margin-top: -2px;
+
+      &:before {
+        top: 0.9375rem;
+      }
+    }
+
+    pre {
+      + .action-btn {
+        display: none;
+        position: absolute;
+        top: 0.5rem;
+        z-index: 1000;
+        right: 0;
+        padding: 0.625rem;
+        line-height: 1;
+
+        &.active {
+          animation-name: active;
+          animation-duration: 0.5s;
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition: background 0.25s ease;
+
+          &:before {
+            opacity: 0;
+            animation-name: active-before;
+            animation-duration: 0.65s;
+            animation-timing-function: ease-in-out;
+          }
+        }
+      }
+
+      &:hover + .action-btn,
+      + .action-btn:focus,
+      + .action-btn:hover {
+        display: block;
+      }
+    }
+  }
+
+  .card-preview-content {
+    .snippet-preview-title {
+      font-weight: 600;
+      -webkit-font-smoothing: antialiased;
+      margin: 2.5rem 0 -2.5rem 0.875rem;
+    }
+
+    .snippet-preview {
+      background: var(--clr-snippet-preview-bg);
+      padding: 3.25rem 0.875rem 0.75rem;
+      border-bottom-left-radius: var(--br-none);
+      border-bottom-right-radius: var(--br-none);
+    }
+
+    + .card-source-content {
+      margin-top: 0;
+
+      .code-highlight:first-of-type > pre {
+        border-top-left-radius: var(--br-none);
+        border-top-right-radius: var(--br-none);
+      }
+    }
+  }
+
+  .card-actions {
+    margin: 1rem 0 -1rem;
+    justify-content: space-evenly;
+
+    .btn {
+      // TODO: Button issue with padding
+      padding: 0.75rem;
+    }
+  }
+}
+
+@keyframes active {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.15) rotate(3deg);
+  }
+  40% {
+    transform: scale(0.94);
+  }
+  60% {
+    transform: scale(0.98) rotate(-3deg);
+  }
+  80% {
+    transform: scale(1.08);
+  }
+  99% {
+  }
+}
+
+@keyframes active-before {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  75% {
+    opacity: 1;
+  }
+}
+
+// Overrides for some problematic snippets
+[data-scope='snippet-preview'] {
+  .full-width {
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: -1.375rem !important;
+    margin-right: -1.375rem !important;
+    width: calc(100% + 2.75rem) !important;
+
+    @media screen and (min-width: 752px) {
+      width: calc(100vw - 3rem - 2.25rem) !important;
+      max-width: calc(100vw - 3rem - 2.25rem) !important;
+      margin-left: calc((640px - 100vw) / 2 + 2.125rem) !important;
+      margin-right: calc((640px - 100vw) / 2 + 2.125rem) !important;
+    }
+
+    @media screen and (min-width: 874px) {
+      width: calc(874px - 3rem - 2.25rem) !important;
+      margin-left: calc((640px - 874px) / 2 + 2.125rem) !important;
+      margin-right: calc((640px - 874px) / 2 + 2.125rem) !important;
+    }
+  }
+
+  input[type='checkbox']:not(:checked) + .switch {
+    background-color: #ffffff40 !important;
+  }
+
+  .slides img {
+    max-width: unset;
+  }
+}
